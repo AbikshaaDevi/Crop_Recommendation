@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Crop Recommendation</title>
+</head>
+<body style="font-family: Arial, sans-serif; display:flex; justify-content:center; padding:30px;">
+  <div style="width:520px;">
+    <h2 style="text-align:center">Crop Recommendation</h2>
+
+    <!-- form container with separate background -->
+    <div style="background:#f3d8c6; padding:18px; border-radius:8px;">
+      <form method="post" action="/">
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="padding:8px; width:48%;">Nitrogen:</td>
+            <td style="padding:8px; width:52%;"><input name="N" type="number" step="1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">Phosphorus:</td>
+            <td style="padding:8px;"><input name="P" type="number" step="1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">Potassium:</td>
+            <td style="padding:8px;"><input name="K" type="number" step="1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">Temperature (°C):</td>
+            <td style="padding:8px;"><input name="temperature" type="number" step="0.1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">Humidity (%):</td>
+            <td style="padding:8px;"><input name="humidity" type="number" step="0.1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">pH:</td>
+            <td style="padding:8px;"><input name="ph" type="number" step="0.1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td style="padding:8px;">Rainfall (mm):</td>
+            <td style="padding:8px;"><input name="rainfall" type="number" step="0.1" required style="width:100%;" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align:center; padding-top:12px;">
+              <button type="submit" style="padding:8px 20px; border-radius:6px;">Predict</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <!-- prediction result centered below form -->
+    <div style="text-align:center; margin-top:18px;">
+      {% if result %}
+        <div style="display:inline-block; padding:12px 18px; border-radius:6px; background:#fababa; box-shadow:0 0 6px rgba(27, 14, 202, 0.527);">
+          <strong>{{ result }}</strong>
+        </div>
+      {% else %}
+        <div style="color:#666; font-size:14px;">Enter values and click Predict</div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
